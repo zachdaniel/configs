@@ -1,0 +1,6 @@
+vim/undo/*
+vim/backups/*
+*.swp
+*.swo
+*.swm
+*.swn
