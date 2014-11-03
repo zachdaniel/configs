@@ -41,6 +41,12 @@ set backupdir=~/.vim/backups,.
 set directory=~/.vim/backups,.
 set hidden
 
+"making tabs work as expected
+:set tabstop=4 shiftwidth=4 expandtab
+
+"This time in ruby
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+
 "Making backspace work right
 set backspace=indent,eol,start
 
