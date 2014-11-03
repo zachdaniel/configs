@@ -1,0 +1,6 @@
+undo/*
+backups/*
+*.swp
+*.swo
+*.swm
+*.swn

@@ -32,6 +32,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Undo and Backup options
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
+set backupdir=~/.vim/backups,.
+set directory=~/.vim/backups,.
+set hidden
+
 " Line Numbers
 :set nu
 
