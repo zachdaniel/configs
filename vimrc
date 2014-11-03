@@ -41,6 +41,9 @@ set backupdir=~/.vim/backups,.
 set directory=~/.vim/backups,.
 set hidden
 
+"Making backspace work right
+set backspace=indent,eol,start
+
 " Line Numbers
 :set nu
 
