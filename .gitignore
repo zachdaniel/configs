@@ -4,3 +4,4 @@ vim/backups/*
 *.swo
 *.swm
 *.swn
+oracle/tnsnames.ora
