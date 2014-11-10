@@ -16,6 +16,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'tpope/vim-surround'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-fireplace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

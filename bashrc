@@ -12,7 +12,7 @@ export PATH=/usr/local/bin:$DYLD_LIBRARY_PATH:$PATH
 
 
 #aliases
-alias splode='clear && /usr/local/bin/fortune -a | cowsay -f stegosaurus curse your sudden but inevitable betrayal!'
+alias splode='clear && /usr/local/bin/fortune -a | cowsay -f stegosaurus'
 
 function parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
