@@ -46,7 +46,7 @@ set directory=~/.vim/backups,.
 set hidden
 
 "making tabs work as expected
-:set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 
 "This time in ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
@@ -60,7 +60,6 @@ set backspace=indent,eol,start
 " Color scheme options
 " Solarized is set up through Iterm Preferences
 syntax enable
-colorscheme solarized
 
 "" NERDtree options
 " Binds opening NERDtree to ctrl + n
