@@ -31,11 +31,6 @@
     
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi #add rbenv shims to the path
     export PATH=/usr/local/bin:$PATH #add homebrew packages to the path
-    yagarto_setup() { 
-      export PATH="$PATH:$HOME/Development/linux/yagarto/yagarto-4.7.2/bin"
-      export PATH="$PATH:$HOME/Development/linux/yagarto/yagarto-4.7.2/tools" 
-    }
-    
 
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
@@ -44,7 +39,6 @@
 
 #   Add this machines ssh key to the ssh-key manager
 #   ------------------------------------------------------------
-    export EDITOR=/usr/bin/vim
     ssh-add > /dev/null 2>&1
 
     

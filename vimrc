@@ -4,7 +4,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+:"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 
@@ -20,6 +20,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-fireplace'
+Bundle "myusuf3/numbers.vim"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,9 +55,6 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 "Making backspace work right
 set backspace=indent,eol,start
 
-" Line Numbers
-:set nu
-
 " Color scheme options
 " Solarized is set up through Iterm Preferences
 syntax enable
@@ -72,3 +70,12 @@ let hostfile='~/Configs/vimrc-' . hostname()
 if filereadable(hostfile)
     exe 'source ' . hostfile
 endif
+
+" Make GitGutter work
+hi clear SignColumn
+
+" set numbers by default
+
+:set nu
+
+
