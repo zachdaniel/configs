@@ -1,4 +1,6 @@
-filetype off                  " required
+"################
+" Bundler
+"################
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -21,6 +23,8 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-fireplace'
 Bundle "myusuf3/numbers.vim"
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,7 +41,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Undo and Backup options
+"#########
+" Undo and Backup
+"########
+
 set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
@@ -46,36 +53,75 @@ set backupdir=~/.vim/backups,.
 set directory=~/.vim/backups,.
 set hidden
 
-"making tabs work as expected
-set tabstop=4 shiftwidth=4 expandtab
 
-"This time in ruby
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+"########
+" Basic Editor Functions
+"########
+
+" Default tab behavior
+set tabstop=4 shiftwidth=4 expandtab
 
 "Making backspace work right
 set backspace=indent,eol,start
 
-" Color scheme options
+"Make up and down behave as expected when lines are wrapped
+:nmap j gj
+:nmap k gk
+
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+
+"###########
+" Colors
+"###########
+
 " Solarized is set up through Iterm Preferences
 syntax enable
 
-"" NERDtree options
-" Binds opening NERDtree to ctrl + n
+
+"##########
+" NERDtree
+"##########
+
+" Binds opening to ctrl + n
 map <C-n> :NERDTreeToggle<CR>
 
-" This has nerdtree not close on file open by default
+" Won't close on file open by default
 let NERDTreeQuitOnOpen = 0
 
-let hostfile='~/Configs/vimrc-' . hostname()
-if filereadable(hostfile)
-    exe 'source ' . hostfile
-endif
+"##########
+" GitGutter
+"##########
 
 " Make GitGutter work
 hi clear SignColumn
 
+"##########
+" Syntastic
+"#########
+
+" These are all the recommended defaults, and have NOT been reviewed
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"#########
+"Line Numbers
+"#########
 " set numbers by default
-
 :set nu
+"The rest is handled by numbers.vim
+ 
+"##########
+" Ruby
+"##########
 
-
+"Tabs
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
