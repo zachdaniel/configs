@@ -19,12 +19,12 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-fireplace'
 Bundle "myusuf3/numbers.vim"
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -80,6 +80,11 @@ set copyindent    " copy the previous indentation on autoindenting
 " Solarized is set up through Iterm Preferences
 syntax enable
 
+"###########
+" Airline
+"###########
+
+set laststatus=2
 
 "##########
 " NERDtree
@@ -112,13 +117,20 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"##########
+" Ctrl P
+"##########
+
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+
 "#########
 "Line Numbers
 "#########
 " set numbers by default
 :set nu
-"The rest is handled by numbers.vim
- 
+"The rest is handled by numbers.vim 
+
 "##########
 " Ruby
 "##########
