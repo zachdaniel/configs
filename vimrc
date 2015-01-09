@@ -41,6 +41,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"########
+" Colors
+"#######
+syntax enable
+set background=dark
+colorscheme solarized
+
+
+
 "#########
 " Undo and Backup
 "########
@@ -73,6 +82,12 @@ set incsearch     " show search matches as you type
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 
+" Enable code folding by default, on indentation
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+
 "###########
 " Colors
 "###########
@@ -95,6 +110,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Won't close on file open by default
 let NERDTreeQuitOnOpen = 0
+
+" Closes vim if the only window left open is NERDtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "##########
 " GitGutter
