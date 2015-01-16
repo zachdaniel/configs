@@ -5,3 +5,4 @@ vim/backups/*
 *.swm
 *.swn
 oracle/*
+.DS_Store
