@@ -25,6 +25,7 @@ Bundle "myusuf3/numbers.vim"
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,10 +46,9 @@ filetype plugin indent on    " required
 " Colors
 "#######
 syntax enable
-set background=dark
-colorscheme solarized
 
-
+syntax on
+color Dracula
 
 "#########
 " Undo and Backup
