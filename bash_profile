@@ -74,6 +74,11 @@
     function parse_git_branch () {
       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
     }
+    
+    # allow for git bash completion
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+       . `brew --prefix`/etc/bash_completion
+    fi
 
     /usr/local/bin/fortune -a | cowsay -f stegosaurus
 
