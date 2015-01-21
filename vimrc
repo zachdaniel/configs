@@ -1,7 +1,6 @@
 "################
 " Bundler
 "################
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -13,6 +12,7 @@ call vundle#begin()
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
+Plugin 'gmarik/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
@@ -26,6 +26,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
+Plugin 'nixon/vim-vmath'
+Plugin 'gavinbeatty/dragvisuals.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,7 +43,7 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
+"Change
 "########
 " Colors
 "#######
@@ -49,7 +51,6 @@ syntax enable
 
 set background=dark
 colorscheme base16-railscasts
-
 
 "#########
 " Undo and Backup
@@ -65,7 +66,7 @@ set hidden
 
 
 "########
-" Basic Editor Functions
+" Basic editor Functions
 "########
 
 " Default tab behavior
@@ -73,10 +74,6 @@ set tabstop=4 shiftwidth=4 expandtab
 
 "Making backspace work right
 set backspace=indent,eol,start
-
-"Make up and down behave as expected when lines are wrapped
-:nmap j gj
-:nmap k gk
 
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
@@ -88,6 +85,27 @@ set copyindent    " copy the previous indentation on autoindenting
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
+
+
+" Make searching work correctly
+nnoremap <silent> n   n:call HLNext(0.4)<cr>
+nnoremap <silent> N   N:call HLNext(0.4)<cr>
+
+function! HLNext (blinktime)
+    highlight WhiteOnRed ctermfg=red ctermbg=white
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#\%('.@/.'\)'
+    let ring = matchadd('WhiteOnRed', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 350) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
+
+" Make whitespace characters shown as weird chars
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
 
 "###########
 " Colors
@@ -135,6 +153,24 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"#########
+" Vim Math
+" ########
+vmap <expr>  ++  VMATH_YankAndAnalyse()
+nmap         ++  vip++
+
+"#########
+" Drag Visuals
+"#########
+
+vmap  <expr>  <S-LEFT>   DVB_Drag('left')
+vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
+vmap  <expr>  <S-DOWN>   DVB_Drag('down')
+vmap  <expr>  <S-UP>     DVB_Drag('up')
+
+" Remove any introduced trailing whitespace after moving... 
+let g:DVB_TrimWS = 1
 
 "##########
 " Ctrl P
