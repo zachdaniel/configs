@@ -178,6 +178,10 @@ let g:DVB_TrimWS = 1
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 
+if argc() == 0
+    :autocmd VimEnter CtrlP
+endif
+
 "#########
 "Line Numbers
 "#########
