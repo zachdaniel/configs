@@ -35,7 +35,7 @@
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
-    export EDITOR=/usr/bin/vim
+    export EDITOR=vim
 
 #   Add this machines ssh key to the ssh-key manager
 #   ------------------------------------------------------------
