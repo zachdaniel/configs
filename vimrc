@@ -26,7 +26,6 @@ Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
 Plugin 'nixon/vim-vmath'
 Plugin 'gavinbeatty/dragvisuals.vim'
-Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
