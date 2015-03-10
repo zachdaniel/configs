@@ -74,7 +74,13 @@
     function parse_git_branch () {
       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
     }
-    
+
+#   CDPATH -> put common directories here
+#   -------------------------------------
+
+    export CDPATH=.:~/Development
+
+
     # allow for git bash completion
     if [ -f `brew --prefix`/etc/bash_completion ]; then
        . `brew --prefix`/etc/bash_completion
@@ -107,6 +113,13 @@
         alias bundo='bundle exec'
         alias dev='cd ~/Development/'
         export CDPATH='.:~/Development/'
+
+#   Convenience Commands -> Specific to my preferred setup
+#   ------------------------------------------------------
+
+    alias dev='cd ~/Development'
+    alias ber='bundle exec rake'
+    alias bundo='bundle exec'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
