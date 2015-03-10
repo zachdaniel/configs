@@ -82,7 +82,31 @@
 
     /usr/local/bin/fortune -a | cowsay -f stegosaurus
 
-    PS1="$GREEN\u@\h$NO_COLOR:\w$RED\$(parse_git_branch)$PURPLE\$$NO_COLOR \n ᗧ ○ ○ "
+    function git_color {
+      local git_status="$(git status 2> /dev/null)"
+
+      if [[ ! $git_status =~ "working directory clean" ]]; then
+        echo -e $RED
+      elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+        echo -e $YELLOW
+      elif [[ $git_status =~ "nothing to commit" ]]; then
+        echo -e $GREEN
+      else
+        echo -e $PURPLE
+      fi
+    }
+
+    PS1="$PURPLE\u@\h$NO_COLOR:\w$(git_color)\$(parse_git_branch)\$$NO_COLOR \n ᗧ ○ ○ "
+
+
+
+    #   Things specific to my typical personal setup
+    #   -----------------------------------------------
+
+        alias ber='bundle exec rake'
+        alias bundo='bundle exec'
+        alias dev='cd ~/Development/'
+        export CDPATH='.:~/Development/'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
