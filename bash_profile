@@ -74,7 +74,13 @@
     function parse_git_branch () {
       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
     }
-    
+
+#   CDPATH -> put common directories here
+#   -------------------------------------
+
+    export CDPATH=.:~/Development
+
+
     # allow for git bash completion
     if [ -f `brew --prefix`/etc/bash_completion ]; then
        . `brew --prefix`/etc/bash_completion
@@ -83,6 +89,13 @@
     /usr/local/bin/fortune -a | cowsay -f stegosaurus
 
     PS1="$GREEN\u@\h$NO_COLOR:\w$RED\$(parse_git_branch)$PURPLE\$$NO_COLOR \n ᗧ ○ ○ "
+
+#   Convenience Commands -> Specific to my preferred setup
+#   ------------------------------------------------------
+
+    alias dev='cd ~/Development'
+    alias ber='bundle exec rake'
+    alias bundo='bundle exec'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
