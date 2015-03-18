@@ -46,7 +46,7 @@
 #   -----------------------------------------------------------
 
     export LOLCOMMITS_DELAY=1
-
+    export LOLCOMMITS_FORK=true
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
