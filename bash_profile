@@ -45,7 +45,7 @@
 #   in my configs on trivialities.
 #   -----------------------------------------------------------
 
-    export LOLCOMMITS_DELAY=2
+    export LOLCOMMITS_DELAY=1
 
 
 #   -----------------------------
