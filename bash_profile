@@ -41,7 +41,12 @@
 #   ------------------------------------------------------------
     ssh-add > /dev/null 2>&1
 
-    
+#   Set the lolcommits delay env var to 1 second, because I like wasting space 
+#   in my configs on trivialities.
+#   -----------------------------------------------------------
+
+    export LOLCOMMITS_DELAY=1
+
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
