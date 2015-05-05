@@ -19,18 +19,18 @@
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
 #
-#   Bring in bashrc and .profile.  Becuase this is used cross machine, those 
+#   Bring in bashrc and .profile.  Becuase this is used cross machine, those
 #   places are where machine specific information can be found
 #  ---------------------------------------------------------------------------
-    
+
     [[ -r ~/.bashrc ]] && . ~/.bashrc
     [[ -r ~/.profile ]] && . ~/.profile
 
 #   Set Paths
 #   ------------------------------------------------------------
-    
+
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi #add rbenv shims to the path
-    export PATH=/usr/local/bin:$PATH #add homebrew packages to the path
+    export PATH=/usr/local/bin:/usr/local/sbin:$PATH #add homebrew packages to the path
 
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
@@ -41,7 +41,7 @@
 #   ------------------------------------------------------------
     ssh-add > /dev/null 2>&1
 
-#   Set the lolcommits delay env var to 1 second, because I like wasting space 
+#   Set the lolcommits delay env var to 1 second, because I like wasting space
 #   in my configs on trivialities.
 #   -----------------------------------------------------------
 
@@ -63,7 +63,7 @@
     alias mkdir='mkdir -pv'                    # Preferred 'mkdir' implementation
     alias ls='ls -AFGp'                        # Preferred 'ls' implementation
     alias less='less -Fc'                      # Preferred 'less' implementation
-    cdd() { builtin cd "$@"; ls;  }            # 'cdd' can be used to cd and ls 
+    cdd() { builtin cd "$@"; ls;  }            # 'cdd' can be used to cd and ls
     alias cd..='cd ../'                        # Go back 1 directory level (for fast typers)
     alias ..='cd ../'                          # Go back 1 directory level
     alias ...='cd ../../'                      # Go back 2 directory levels
@@ -74,7 +74,7 @@
     alias f='open -a Finder ./'                # f:Opens current directory in MacOS Finder
     alias ~="cd ~"                             # ~:            Go Home
     alias c='clear'                            # c:            Clear terminal display
-    mcd () { mkdir -p "$1" && cd "$1"; }       # mcd:          Makes new Dir and jumps inside   
+    mcd () { mkdir -p "$1" && cd "$1"; }       # mcd:          Makes new Dir and jumps inside
     trash () { command mv "$@" ~/.Trash ; }    # trash:        Moves a file to the MacOS trash
 
     function parse_git_branch () {
@@ -175,12 +175,12 @@
 #   4.  SEARCHING
 #   ---------------------------
 
-    
+
 #   ---------------------------
 #   5.  PROCESS MANAGEMENT
 #   ---------------------------
 
-#   memHogsTop, memHogsPs:  Find memory hogs    
+#   memHogsTop, memHogsPs:  Find memory hogs
 #   -------------------------------------------------HogsTop='top -l 1 -o rsize | head -20'
     alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 
@@ -202,7 +202,7 @@
 #   my_ps: List processes owned by my user:
 #   ------------------------------------------------------------
     my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
-    
+
 
 #   ---------------------------
 #   6.  NETWORKING
@@ -212,7 +212,7 @@
     alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
     alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
     alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
-   
+
 
 #   ---------------------------------------
 #   7.  SYSTEMS OPERATIONS & INFORMATION
@@ -252,7 +252,7 @@
     from_hex() {
       echo "$((0x$1))"
     }
-    
+
     to_hex() {
       printf '%x\n' "$1"
     }
@@ -264,5 +264,3 @@
     to_binary() {
       ruby -e "puts $1.to_s(2)"
     }
-
-
