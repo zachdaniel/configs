@@ -267,11 +267,3 @@
     to_binary() {
       ruby -e "puts $1.to_s(2)"
     }
-<<<<<<< HEAD
-
-    alias fuck='$(thefuck $(fc -ln -1))'
-    # You can use whatever you want as an alias, like for mondays:
-    alias FUCK='fuck'
-
-=======
->>>>>>> 67f64be8f28ac067eb15d0886d38c77f3ea254c5
