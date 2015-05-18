@@ -30,6 +30,8 @@
 #   ------------------------------------------------------------
     
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi #add rbenv shims to the path
+    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+    export PYENV_ROOT=/usr/local/var/pyenv
     export PATH=/usr/local/bin:$PATH #add homebrew packages to the path
 
 
@@ -265,4 +267,7 @@
       ruby -e "puts $1.to_s(2)"
     }
 
+    alias fuck='$(thefuck $(fc -ln -1))'
+    # You can use whatever you want as an alias, like for mondays:
+    alias FUCK='fuck'
 
