@@ -30,6 +30,9 @@
 #   ------------------------------------------------------------
 
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi #add rbenv shims to the path
+    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+    export PYENV_ROOT=/usr/local/var/pyenv
+    export PATH=/usr/local/bin:$PATH #add homebrew packages to the path
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH #add homebrew packages to the path
 
 
