@@ -34,7 +34,7 @@
     export PYENV_ROOT=/usr/local/var/pyenv
     export PATH=/usr/local/bin:$PATH #add homebrew packages to the path
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH #add homebrew packages to the path
-
+    echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
