@@ -122,6 +122,8 @@
         alias bundo='bundle exec'
         alias dev='cd ~/Development/'
         export CDPATH='.:~/Development/'
+        alias plz='foreman run bundle exec'
+        alias edit_profile='vim ~/.bash_profile'
 
 #   Convenience Commands -> Specific to my preferred setup
 #   ------------------------------------------------------
