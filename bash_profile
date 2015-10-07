@@ -1,4 +1,4 @@
-#  ---------------------------------------------------------------------------
+ #  ---------------------------------------------------------------------------
 #
 #  Description:  This file holds all my BASH configurations and aliases
 #
@@ -29,12 +29,9 @@
 #   Set Paths
 #   ------------------------------------------------------------
 
-    if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi #add rbenv shims to the path
-    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-    export PYENV_ROOT=/usr/local/var/pyenv
-    export PATH=/usr/local/bin:$PATH #add homebrew packages to the path
-    export PATH=/usr/local/bin:/usr/local/sbin:$PATH #add homebrew packages to the path
-    echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:/usr/local/opt/llvm/bin:$PATH #add homebrew packages to the path
+
+    launchctl setenv PATH $PATH
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -89,31 +86,42 @@
 
     export CDPATH=.:~/Development
 
-
     # allow for git bash completion
     if [ -f `brew --prefix`/etc/bash_completion ]; then
        . `brew --prefix`/etc/bash_completion
     fi
 
-    /usr/local/bin/fortune -a | cowsay -f stegosaurus
+    rand() {
+        printf $((  $1 *  RANDOM  / 32767   ))
+    }
+    
+    rand_element () {
+        local -a th=("$@")
+        unset th[0]
+        printf $'%s\n' "${th[$(($(rand ${#th[*]})+1))]}"
+    }
+
+    cow=$(rand_element "bud-frogs" "bunny" "cheese" "cower" "daemon" "default" "dragondragon-and-cow" "elephant" "elephant-in-snake" "eyes" "flaming-sheep" "hellokitty" "kiss" "kitty" "koala" "kosh" "luke-koala" "meow" "milk" "moofasa" "ren" "satanic" "sheep" "skeleton" "small" "sodomized" "stegosaurus" "surgery" "telebears" "three-eyes" "turkey" "turtle" "tux" "udder" "www")
+
+    /usr/local/bin/fortune -a | cowsay -f $cow
 
     function git_color {
       local git_status="$(git status 2> /dev/null)"
 
-      if [[ ! $git_status =~ "working directory clean" ]]; then
-        echo -e $RED
-      elif [[ $git_status =~ "Your branch is ahead of" ]]; then
-        echo -e $YELLOW
+      if [[ $git_status =~ "Your branch is ahead of" ]]; then
+        echo -e $PURPLE
       elif [[ $git_status =~ "nothing to commit" ]]; then
         echo -e $GREEN
-      else
-        echo -e $PURPLE
+      elif [[ ! $git_status =~ "working directory clean" ]]; then
+        echo -e $RED
       fi
     }
 
-    PS1="$PURPLE\u@\h$NO_COLOR:\w$(git_color)\$(parse_git_branch)\$$NO_COLOR \n ᗧ ○ ○ "
+    set_bash_prompt(){
+        PS1="$PURPLE\u@\h$NO_COLOR:\w$(git_color)$(parse_git_branch)\$$NO_COLOR \n ᗧ ○ ○ "
+    }
 
-
+    PROMPT_COMMAND=set_bash_prompt
 
     #   Things specific to my typical personal setup
     #   -----------------------------------------------
@@ -125,6 +133,7 @@
         alias plz='foreman run bundle exec'
         alias edit_profile='vim ~/.bash_profile'
 
+        alias avant='bundle exec avant'
 #   Convenience Commands -> Specific to my preferred setup
 #   ------------------------------------------------------
 
@@ -180,7 +189,6 @@
 #   4.  SEARCHING
 #   ---------------------------
 
-
 #   ---------------------------
 #   5.  PROCESS MANAGEMENT
 #   ---------------------------
@@ -208,7 +216,6 @@
 #   ------------------------------------------------------------
     my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 
-
 #   ---------------------------
 #   6.  NETWORKING
 #   ---------------------------
@@ -217,7 +224,6 @@
     alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
     alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
     alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
-
 
 #   ---------------------------------------
 #   7.  SYSTEMS OPERATIONS & INFORMATION
@@ -245,11 +251,13 @@
 #   8.  WEB DEVELOPMENT
 #   ---------------------------------------
 
-
 #   ---------------------------------------
 #   9.  TOOLS
 #   ---------------------------------------
 
+#   rbenv - a less insane version management tool
+#   ------------------------------
+    if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #   Number conversions
 #   ---------------------------------------
