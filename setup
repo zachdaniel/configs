@@ -4,24 +4,36 @@ while getopts "fbag" opt; do
   case $opt in
     f)
       echo "First Time Setup"
-      FIRST_TIME=true
+      first
       ;;
     b)
       echo "Install/Setup Brew Packages"
-      BREW=true
+      brew
       ;;
     a)
 	  echo "Getting Standard Applications"
-	  GETMACAPPS=true
+	  getmacapps
 	  ;;
 	g)
       echo "Git Config"
-      GITCONFIG=true
+      gitconfig
     \?)
       echo "Invalid option: -$OPTARG" >&2
       ;;
   esac
 done
+
+
+function_name () { 
+	command -v brew >/dev/null 2>&1 || `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+	brew install git bash-completion
+	brew install rbenv ruby-build
+	brew install postgres
+	brew install redis
+	brew install rabbitmq
+	
+} 
+
 
 
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl

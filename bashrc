@@ -1,1 +1,2 @@
-/Users/zachdaniel/.bashrc
+#!/bin/bash
+#bashrc
