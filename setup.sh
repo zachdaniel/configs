@@ -5,3 +5,6 @@ brew install git bash-completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
+
+git config --global user.name "Zachary Daniel"
+git config --global user.email "zachary.s.daniel@gmail.com"
