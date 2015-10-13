@@ -1,0 +1,32 @@
+#!/bin/bash
+
+while getopts "fbag" opt; do
+  case $opt in
+    f)
+      echo "First Time Setup"
+      FIRST_TIME=true
+      ;;
+    b)
+      echo "Install/Setup Brew Packages"
+      BREW=true
+      ;;
+    a)
+	  echo "Getting Standard Applications"
+	  GETMACAPPS=true
+	  ;;
+	g)
+      echo "Git Config"
+      GITCONFIG=true
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
+
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+brew install git bash-completion
+
+git config --global user.name "Zachary Daniel"
+git config --global user.email "zachary.s.daniel@gmail.com"
