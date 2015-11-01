@@ -1,40 +1,26 @@
 #!/bin/bash
 
-while getopts "fbag" opt; do
-  case $opt in
-    f)
-      echo "First Time Setup"
-      first
-      ;;
-    b)
-      echo "Install/Setup Brew Packages"
-      brew
-      ;;
-    a)
-	  echo "Getting Standard Applications"
-	  getmacapps
-	  ;;
-	g)
-      echo "Git Config"
-      gitconfig
-    \?)
-      echo "Invalid option: -$OPTARG" >&2
-      ;;
-  esac
-done
 
+command -v brew >/dev/null 2>&1 || `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+brew install git bash-completion
+brew install rbenv ruby-build
+brew install postgres
+brew install redis
+brew install rabbitmq	
+brew install macvim
+brew install fortune
+brew install cowsay
 
-function_name () { 
-	command -v brew >/dev/null 2>&1 || `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-	brew install git bash-completion
-	brew install rbenv ruby-build
-	brew install postgres
-	brew install redis
-	brew install rabbitmq
-	
-} 
+brew linkapps
 
+ln_() {
+  ln -s ~/Configs/$1 ~/.$1
+}
 
+ln_ bashrc
+ln_ bash_profile
+ln_ inputrc
+ln_ vimrc
 
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
