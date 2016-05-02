@@ -1,8 +1,5 @@
-vim/undo/*
-vim/backups/*
 *.swp
 *.swo
 *.swm
 *.swn
-oracle/*
 .DS_Store
