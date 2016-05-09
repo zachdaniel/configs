@@ -3,3 +3,4 @@
 *.swm
 *.swn
 .DS_Store
+machine_specific/

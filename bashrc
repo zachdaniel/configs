@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -f ~/Configs/machine_specific/bashrc ]; then
+  source ~/Configs/machine_specific/bashrc
+fi
+
 ##################
 # Git Completion
 
