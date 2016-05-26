@@ -1,4 +1,0 @@
-#! /bin/bash
-
-docker exec -it albertio_isaac_1 /bin/bash
-
