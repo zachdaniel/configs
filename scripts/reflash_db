@@ -1,9 +1,0 @@
-#! /bin/bash
-
-RETHINK_DESTINATION=localhost:28015
-DESTINATION_LOCATION=~/Downloads/latest_backup.tar.gz
-
-rm -f $DESTINATION_LOCATION
-gsutil cp gs://albertio_backups/latest_backup.tar.gz $DESTINATION_LOCATION
-rethinkdb restore --force $DESTINATION_LOCATION -c $RETHINK_DESTINATION
-

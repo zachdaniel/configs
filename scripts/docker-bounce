@@ -1,7 +1,0 @@
-#! /bin/bash
-
-cd ~/Development/albert-io
-
-docker-compose kill
-docker-compose rm -f --all
-docker-compose up -d
