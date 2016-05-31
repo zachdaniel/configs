@@ -251,7 +251,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;; GIT ;;
-  (setq magit-repository-directories '("~/Development/albert-io/"))
+  (setq magit-repository-directories '("~/Development/"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
