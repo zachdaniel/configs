@@ -31332,13 +31332,13 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>2135 951 606 456 1280 0 2560 1417 </string>
+	<string>855 951 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>412 363 620 392 0 0 1440 877 </string>
+	<string>2970 1046 620 392 2560 -562 1440 2537 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3841 -556 1438 2526 3840 -562 1440 2537 </string>
+	<string>2561 -546 1438 2516 2560 -562 1440 2537 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1683 159 570 452 1280 0 2560 1417 </string>
+	<string>2561 -556 1438 2526 2560 -562 1440 2537 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -31978,10 +31978,12 @@
 			<string>/Users/zacharydaniel</string>
 		</dict>
 	</array>
+	<key>NoSyncConfirmBeta</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>2C2B12B1-F692-4A29-A0C7-5D5BDD71210B</string>
 	<key>NoSyncLastTipTime</key>
-	<real>485385855.89890701</real>
+	<real>487694699.41004997</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -32003,6 +32005,21 @@
 		<string>0007</string>
 		<string>0008</string>
 		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+		<string>0016</string>
+		<string>0017</string>
+		<string>0018</string>
+		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
 	</array>
 	<key>PointerActions</key>
 	<dict>
@@ -32044,12 +32061,14 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing3.xml?shard=1</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=1</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-05-20T17:54:54Z</date>
+	<date>2016-06-15T15:20:55Z</date>
 	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>TabStyle</key>
 	<integer>1</integer>
@@ -32062,7 +32081,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160510</string>
+	<string>3.0.1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

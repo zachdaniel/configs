@@ -27,6 +27,8 @@ values."
       better-defaults
       ;; emacs-lisp
       git
+      (ranger :variables
+               ranger-show-preview t)
       ;; markdown
       ;; org
       (shell :variables
@@ -253,6 +255,5 @@ you should place your code here."
   ;; GIT ;;
   (setq magit-repository-directories '("~/Development/"))
   )
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
