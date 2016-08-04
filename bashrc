@@ -11,6 +11,13 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
+
+################
+# Git Config
+git config --global user.name zachdaniel
+git config --global user.email zachary.s.daniel@gmail.com
+git config --global push.default current
+
 ##############
 # Aliases
 
@@ -40,7 +47,7 @@ alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
 alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
-
+alias ec="emacsclient -c -n"
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
@@ -104,11 +111,23 @@ to_binary() {
 #################
 # PS1
 
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-NO_COLOR="\[\033[0m\]"
-PURPLE="\e[0;35m"
+export COLOR_NC='\e[0m' # No Color
+export COLOR_WHITE='\e[1;37m'
+export COLOR_BLACK='\e[0;30m'
+export COLOR_BLUE='\e[0;34m'
+export COLOR_LIGHT_BLUE='\e[1;34m'
+export COLOR_GREEN='\e[0;32m'
+export COLOR_LIGHT_GREEN='\e[1;32m'
+export COLOR_CYAN='\e[0;36m'
+export COLOR_LIGHT_CYAN='\e[1;36m'
+export COLOR_RED='\e[0;31m'
+export COLOR_LIGHT_RED='\e[1;31m'
+export COLOR_PURPLE='\e[0;35m'
+export COLOR_LIGHT_PURPLE='\e[1;35m'
+export COLOR_BROWN='\e[0;33m'
+export COLOR_YELLOW='\e[1;33m'
+export COLOR_GRAY='\e[0;30m'
+export COLOR_LIGHT_GRAY='\e[0;37m'
 
 function parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -118,16 +137,17 @@ function git_color {
   local git_status="$(git status 2> /dev/null)"
 
   if [[ $git_status =~ "Your branch is ahead of" ]]; then
-    echo -e $PURPLE
+    echo -e $COLOR_PURPLE
   elif [[ $git_status =~ "nothing to commit" ]]; then
-    echo -e $GREEN
+    echo -e $COLOR_GREEN
   elif [[ ! $git_status =~ "working directory clean" ]]; then
-    echo -e $RED
+    echo -e $COLOR_RED
   fi
 }
 
 set_bash_prompt(){
-    PS1="$GREEN\u@\h$NO_COLOR:\w$(git_color)$(parse_git_branch)\$$NO_COLOR \n ᗧ ○ ○ "
+
+    PS1="\[\w\] \[$(git_color)\]$(parse_git_branch)\[${COLOR_NC}\]\n\[${COLOR_PURPLE}\]λ\[${COLOR_NC}\]: "
 }
 
 function from_epoch () {
@@ -138,5 +158,10 @@ function from_epoch () {
   fi
   date -r $i
 }
+
+function fuckport() {
+    kill `sudo lsof -t -i:$1`
+}
+
 
 PROMPT_COMMAND=set_bash_prompt

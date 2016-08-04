@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [[ $1 ]]; then
-    open -a /Applications/Emacs.app $1
-else
-    open -a /Applications/Emacs.app .
-fi
