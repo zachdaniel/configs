@@ -7,4 +7,4 @@ ln_() {
 ln_ bashrc
 ln_ bash_profile
 ln_ profile
-ln_ emacs
+ln_ emacs.d

@@ -1,18 +1,3 @@
-;; package manager
-
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
-
-;; INTERFACE
-    ;; evil-mode
-    (require 'evil)
-    (evil-mode 1)
-
-;; APPEARANCE
-    ;; theme
-    (load-theme 'badwolf t)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
