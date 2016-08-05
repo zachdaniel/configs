@@ -17,6 +17,8 @@
     (setq ns-pop-up-frames nil)
 
     ;; evil-mode
+    (global-evil-tabs-mode t)
+    (setq evil-want-C-i-jump nil)
     (require 'evil)
     (evil-mode 1)
 
