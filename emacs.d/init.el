@@ -7,6 +7,10 @@
 ;; INIT MANAGEMENT
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 
 ;; INTERFACE
     ;; Open in same window

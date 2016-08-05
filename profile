@@ -10,5 +10,4 @@ export PATH=~/Library/Haskell/bin/:$PATH
 export PATH=~/Configs/machine_specific/scripts:$PATH #add machine specific scripts to path
 export PATH=~/.multirust/toolchains/nightly/cargo/bin:$PATH #add multirust binaries to path
 export EDITOR=vim
-export ALTERNATE_EDITOR=""
 export CDPATH=.:~/Development
