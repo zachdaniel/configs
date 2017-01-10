@@ -146,7 +146,6 @@ function git_color {
 }
 
 set_bash_prompt(){
-
     PS1="\[\w\] \[$(git_color)\]$(parse_git_branch)\[${COLOR_NC}\]\n\[${COLOR_PURPLE}\]λ\[${COLOR_NC}\]: "
 }
 
@@ -162,6 +161,5 @@ function from_epoch () {
 function fuckport() {
     kill `sudo lsof -t -i:$1`
 }
-
 
 PROMPT_COMMAND=set_bash_prompt
